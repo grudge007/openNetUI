@@ -1,0 +1,3 @@
+client/.gitignore
+commands/
+server/.env
