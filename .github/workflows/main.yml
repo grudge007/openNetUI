@@ -1,0 +1,25 @@
+name: Server CI
+
+on:
+  push:
+    paths:
+      - 'server/**'
+  pull_request:
+    paths:
+      - 'server/**'
+
+jobs:
+  run-server:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install deps
+        run: |
+          cd server
+          npm install
+
+      - name: Start server
+        run: |
+          cd server
+          node index.js
